@@ -50,9 +50,9 @@ lx1            = 0.048;                                                    % Edu
 lx2            = 0.048/2;                                                  % Edu skills depreciation rate for employed
 param.lx1      = lx1;                                                      %
 param.lx2      = lx2;                                                      %
-param.lx3_vec  = [1-((0.325+0.519)/2)^(1/4), 1-((0.207+0.256)/2)^(1/4)];   % Strayer and Light (2000) page 315,old and worse than NCES
+param.lx3_vec  = [1-((0.325+0.519)/2)^(1/4), 1-((0.207+0.256)/2)^(1/4)];   % College dropout risk
 param.lx3      = param.lx3_vec;
-parent_abtran  = [0.74136275, 0.25863725; 0.34289128, 0.65710872; 0.62180579, 0.37819421; 0.26403233, 0.7359677];
+parent_abtran  = [0.74136275, 0.25863725; 0.34289128, 0.65710872; 0.62180579, 0.37819421; 0.26403233, 0.7359677]; % Intergen trans of ability
 param.la1      = 0.157*12;                                                 % Rate from unemp to emp   with no edu 
 param.la2      = 0.011*12;                                                 % Rate from emp   to unemp with no edu 
 param.la3      = 0.134*12;                                                 % Rate from unemp to emp   with edu 
@@ -65,7 +65,7 @@ abtypes        = 2;                                                        % Abi
 %%
 
 onerun                = tic;                                               % Track runtime
-delta_kfe             = 1000;                                              % HJB update                                             
+delta_kfe             = 1000;                                              % KFE update (unused)                                            
 param.AssumeConcavity = 0;                                                 % Do not change - helps for non concavity of V
 % Number of grid points
 switch smallgrid
